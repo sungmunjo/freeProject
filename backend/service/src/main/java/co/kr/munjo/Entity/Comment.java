@@ -1,16 +1,29 @@
 package co.kr.munjo.Entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Comment {
     @Id @GeneratedValue
     private Long id;
 
-    private String CommentContext;
+    private String commentContext;
 
     @ManyToOne
     private Post post;
+
+    public Integer getLikeCount() {
+        return likeCount;
+    }
+
+    public void setLikeCount(Integer likeCount) {
+        this.likeCount = likeCount;
+    }
+
+    private Integer likeCount;
 
     public Long getId() {
         return id;
@@ -21,11 +34,11 @@ public class Comment {
     }
 
     public String getCommentContext() {
-        return CommentContext;
+        return commentContext;
     }
 
     public void setCommentContext(String commentContext) {
-        CommentContext = commentContext;
+        this.commentContext = commentContext;
     }
 
     public Post getPost() {

@@ -58,6 +58,9 @@ public class CrudRepositoryTest {
         Post nextPost = new Post();
         nextPost.setTitle("test222");
         postRepository.save(nextPost);
+
+        long test1 = postRepository.countByTitleContains("test");
+        assertThat(test1).isEqualTo(2L);
 //        Comment comment1 = new Comment();
 //        comment1.setCommentContext("testComment1");
 //        Comment comment2 = new Comment();
