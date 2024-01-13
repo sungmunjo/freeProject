@@ -1,12 +1,14 @@
 package co.kr.munjo.Entity;
 
+import co.kr.munjo.event.PostPublishedEvent;
 import jakarta.persistence.*;
+import org.springframework.data.domain.AbstractAggregateRoot;
 
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-public class Post {
+public class Post extends AbstractAggregateRoot<Post> {
 
     @Id @GeneratedValue
     private Long id;
@@ -45,4 +47,10 @@ public class Post {
         this.comments = comments;
     }
 
+    public Post publish() {
+        this.registerEvent(new PostPublishedEvent(this));
+
+
+        return this;
+    }
 }

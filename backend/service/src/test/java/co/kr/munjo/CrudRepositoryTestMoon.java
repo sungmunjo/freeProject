@@ -18,7 +18,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
-public class CrudRepositoryTest {
+public class CrudRepositoryTestMoon {
     @Autowired
     PostRepository postRepository;
 
