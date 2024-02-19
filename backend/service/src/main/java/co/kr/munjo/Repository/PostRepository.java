@@ -6,8 +6,9 @@ import co.kr.munjo.Repository.custom.PostCustomRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 
-public interface PostRepository extends JpaRepository<Post, Long>, PostCustomRepository<Post> {
+public interface PostRepository extends JpaRepository<Post, Long>, PostCustomRepository<Post>, QuerydslPredicateExecutor<Post> {
 
     Page<Post> findByTitleContains(String title, Pageable pageable);
 
