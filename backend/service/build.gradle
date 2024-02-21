@@ -30,6 +30,10 @@ dependencies {
     compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     annotationProcessor 'org.projectlombok:lombok'
+    // https://mvnrepository.com/artifact/org.springframework.hateoas/spring-hateoas
+    implementation 'org.springframework.boot:spring-boot-starter-hateoas'
+
+
 
     //테스트 라이브러리
 

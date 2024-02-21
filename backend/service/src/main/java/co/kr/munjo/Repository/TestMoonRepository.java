@@ -5,6 +5,6 @@ import co.kr.munjo.Repository.Utils.MyRepository;
 import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
 import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 
-public interface TestMoonRepository extends MyRepository<TestMoon, Long> , QuerydslPredicateExecutor<TestMoon> , SimpleJpaRepository<TestMoon, Long> {
+public interface TestMoonRepository extends MyRepository<TestMoon, Long> , QuerydslPredicateExecutor<TestMoon> {
 
 }

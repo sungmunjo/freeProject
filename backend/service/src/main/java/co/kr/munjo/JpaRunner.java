@@ -31,23 +31,23 @@ public class JpaRunner implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
 
-        Post post = new Post();
-        post.setTitle("Comment Title");
-
-        Comment comment = new Comment();
-        comment.setCommentContext("testComment");
-        post.addCommnet(comment);
-
-        Comment comment1 = new Comment();
-        comment1.setCommentContext("testComment2");
-        post.addCommnet(comment1);
-
-        postRepository.save(post);
-
-        System.out.println(post.getTitle());
-
-        Page<Post> postPage = postRepository.findByTitleContains("mment", PageRequest.of(0, 10));
-        System.out.println(postPage.getSize());
+//        Post post = new Post();
+//        post.setTitle("Comment Title");
+//
+//        Comment comment = new Comment();
+//        comment.setCommentContext("testComment");
+//        post.addCommnet(comment);
+//
+//        Comment comment1 = new Comment();
+//        comment1.setCommentContext("testComment2");
+//        post.addCommnet(comment1);
+//
+//        postRepository.save(post);
+//
+//        System.out.println(post.getTitle());
+//
+//        Page<Post> postPage = postRepository.findByTitleContains("mment", PageRequest.of(0, 10));
+//        System.out.println(postPage.getSize());
 
 //        Session session = entityManager.unwrap(Session.class);
 //        Post post1 = session.get(Post.class, 2);

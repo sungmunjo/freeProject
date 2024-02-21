@@ -10,31 +10,31 @@ import com.querydsl.core.types.Path;
 
 
 /**
- * QPost is a Querydsl query type for Post
+ * QBook is a Querydsl query type for Book
  */
 @Generated("com.querydsl.codegen.DefaultEntitySerializer")
-public class QPost extends EntityPathBase<Post> {
+public class QBook extends EntityPathBase<Book> {
 
-    private static final long serialVersionUID = 222538083L;
+    private static final long serialVersionUID = 222120876L;
 
-    public static final QPost post = new QPost("post");
+    public static final QBook book = new QBook("book");
 
-    public final DateTimePath<java.util.Date> created = createDateTime("created", java.util.Date.class);
+    public final StringPath content = createString("content");
 
     public final NumberPath<Long> id = createNumber("id", Long.class);
 
     public final StringPath title = createString("title");
 
-    public QPost(String variable) {
-        super(Post.class, forVariable(variable));
+    public QBook(String variable) {
+        super(Book.class, forVariable(variable));
     }
 
-    public QPost(Path<? extends Post> path) {
+    public QBook(Path<? extends Book> path) {
         super(path.getType(), path.getMetadata());
     }
 
-    public QPost(PathMetadata metadata) {
-        super(Post.class, metadata);
+    public QBook(PathMetadata metadata) {
+        super(Book.class, metadata);
     }
 
 }

@@ -4,24 +4,38 @@ import co.kr.munjo.event.PostPublishedEvent;
 import jakarta.persistence.*;
 import org.springframework.data.domain.AbstractAggregateRoot;
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-public class Post extends AbstractAggregateRoot<Post> {
+public class Post {
 
     @Id @GeneratedValue
     private Long id;
 
     private String title;
 
-    @OneToMany(mappedBy = "post", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
-    private Set<Comment> comments = new HashSet<>();
+//    @OneToMany(mappedBy = "post", cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+//    private Set<Comment> comments = new HashSet<>();
 
-    public void addCommnet(Comment commet){
-        this.getComments().add(commet);
-        commet.setPost(this);
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date created;
+
+    public Date getCreated() {
+        return created;
     }
+
+    public void setCreated(Date created) {
+        this.created = created;
+    }
+
+
+
+//    public void addCommnet(Comment commet){
+//        this.getComments().add(commet);
+//        commet.setPost(this);
+//    }
 
     public Long getId() {
         return id;
@@ -39,18 +53,18 @@ public class Post extends AbstractAggregateRoot<Post> {
         this.title = title;
     }
 
-    public Set<Comment> getComments() {
-        return comments;
-    }
+//    public Set<Comment> getComments() {
+//        return comments;
+//    }
 
-    public void setComments(Set<Comment> comments) {
-        this.comments = comments;
-    }
+//    public void setComments(Set<Comment> comments) {
+//        this.comments = comments;
+//    }
 
-    public Post publish() {
-        this.registerEvent(new PostPublishedEvent(this));
-
-
-        return this;
-    }
+//    public Post publish() {
+//        this.registerEvent(new PostPublishedEvent(this));
+//
+//
+//        return this;
+//    }
 }

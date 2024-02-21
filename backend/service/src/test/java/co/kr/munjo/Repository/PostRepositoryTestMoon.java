@@ -28,7 +28,7 @@ class PostRepositoryTestMoon {
         postRepository.findMyPost();
         Post post = new Post();
         post.setTitle("hibernate");
-        postRepository.save(post.publish());
+//        postRepository.save(post.publish());
 
         postRepository.findMyPost();
 
