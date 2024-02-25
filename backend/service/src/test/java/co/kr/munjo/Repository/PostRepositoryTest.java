@@ -51,4 +51,19 @@ class PostRepositoryTest {
 
     }
 
+    @Test
+    public void selectByTitleTest(){
+        createPost();
+
+        List<Post> findTitleList = postRepository.findByTitle("jpa");
+
+        assertThat(findTitleList.size()).isEqualTo(1);
+    }
+
+    private void createPost() { 
+        Post post = new Post();
+        post.setTitle("jpa");
+        Post savedPost = postRepository.save(post); //persist
+    }
+
 }
