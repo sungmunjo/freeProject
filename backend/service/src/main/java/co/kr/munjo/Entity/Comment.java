@@ -1,11 +1,16 @@
 package co.kr.munjo.Entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
+import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedBy;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import java.util.Date;
 
 @Entity
+@EntityListeners(AuditingEntityListener.class)
 public class Comment {
     @Id @GeneratedValue
     private Long id;
@@ -21,6 +26,52 @@ public class Comment {
 
     private boolean best;
 
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Account getCreateUser() {
+        return createUser;
+    }
+
+    public void setCreateUser(Account createUser) {
+        this.createUser = createUser;
+    }
+
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
+    }
+
+    public Account getUpdateUser() {
+        return updateUser;
+    }
+
+    public void setUpdateUser(Account updateUser) {
+        this.updateUser = updateUser;
+    }
+
+    @CreatedDate
+    private Date createTime;
+
+    @CreatedBy
+    @ManyToOne
+    private Account createUser;
+
+    @LastModifiedDate
+    private Date updateTime;
+
+    @LastModifiedBy
+    @ManyToOne
+    private Account updateUser;
 
     public Integer getLikeCount() {
         return likeCount;
@@ -89,4 +140,13 @@ public class Comment {
     public void setBest(boolean best) {
         this.best = best;
     }
+
+
+//    @PrePersist
+//    public void perPersist(){
+//        System.out.println("Pre Persist is called");
+//        this.createTime = new Date();
+//        this.createUser =
+//
+//    }
 }

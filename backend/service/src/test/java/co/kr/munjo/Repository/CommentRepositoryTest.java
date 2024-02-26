@@ -6,12 +6,13 @@ import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 @RunWith(SpringRunner.class)
-@DataJpaTest
+@SpringBootTest
 class CommentRepositoryTest {
 
     @Autowired
@@ -27,6 +28,7 @@ class CommentRepositoryTest {
         postRepository.save(post);
 
         Comment comment = new Comment();
+        comment.setCommentContext("spring data jpa projection");
         comment.setPost(post);
         comment.setUp(10);
         comment.setDown(1);
@@ -38,5 +40,6 @@ class CommentRepositoryTest {
             System.out.println(c.getVotes());
         });
     }
+
 
 }
